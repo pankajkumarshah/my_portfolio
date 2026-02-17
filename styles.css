@@ -264,3 +264,7 @@
 .resume-btn:hover {
   background: #00796b;
 }
+section {
+  scroll-margin-top: 80px;
+}
+
