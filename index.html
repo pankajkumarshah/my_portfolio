@@ -150,7 +150,10 @@
 
   </div>
 
-<p id="payment-status" style="text-align:center; margin-top:1rem; display:none;"></p>
+<p id="payment-status"
+   style="text-align:center; margin-top:1rem; display:none;">
+</p>
+
 </section>
 
 
@@ -247,6 +250,14 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <script>
+  <script>
+  // FORCE HIDE success message on page load
+  var status = document.getElementById("payment-status");
+  if (status) {
+    status.style.display = "none";
+    status.textContent = "";
+  }
+  
   document.getElementById("pay-btn").onclick = function () {
     var options = {
       key: "rzp_test_1DP5mmOlF5G5ag", // Razorpay TEST key (safe)
