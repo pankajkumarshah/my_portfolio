@@ -133,6 +133,24 @@
 </section>
 
 
+<!-- Payment Demo -->
+<section id="payment" class="container section">
+  <h2 class="section-title">Payment Gateway Demo</h2>
+
+  <p style="text-align:center; max-width:700px; margin:auto;">
+    This is a <strong>demo payment gateway integration</strong> using Razorpay
+    <strong>test mode</strong>. No real money is charged. This section is added
+    only to demonstrate payment integration skills.
+  </p>
+
+  <div style="text-align:center; margin-top:1.5rem;">
+    <button id="pay-btn" class="pay-demo-btn">
+      Pay ₹1 (Demo)
+    </button>
+  </div>
+
+  <p id="payment-status" style="text-align:center; margin-top:1rem;"></p>
+</section>
 
 
   <!-- Contact -->
@@ -221,6 +239,38 @@
           }
         );
     });
+</script>
+
+  
+<!-- Razorpay Demo Script -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+  document.getElementById("pay-btn").onclick = function () {
+    var options = {
+      key: "rzp_test_1DP5mmOlF5G5ag", // Razorpay TEST key (safe)
+      amount: 100, // ₹1 = 100 paise
+      currency: "INR",
+      name: "Pankaj Portfolio",
+      description: "Payment Gateway Demo (Test Mode)",
+      handler: function (response) {
+        document.getElementById("payment-status").style.color = "green";
+        document.getElementById("payment-status").textContent =
+          "Payment Successful! (Demo Only)";
+        console.log("Payment ID:", response.razorpay_payment_id);
+      },
+      prefill: {
+        name: "Demo User",
+        email: "demo@example.com"
+      },
+      theme: {
+        color: "#0097a7"
+      }
+    };
+
+    var rzp = new Razorpay(options);
+    rzp.open();
+  };
 </script>
 
 </body>
