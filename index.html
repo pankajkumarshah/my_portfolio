@@ -156,6 +156,33 @@
 
 </section>
 
+  <!-- Locked Content Demo -->
+<section id="locked-demo" class="container section">
+  <h2 class="section-title">Premium Content (Demo)</h2>
+
+  <div id="locked-box" style="text-align:center;">
+    <p>🔒 This content is locked.</p>
+    <p>Unlock to view premium projects and resume (Demo Only).</p>
+
+    <button id="unlock-btn" class="pay-demo-btn">
+      Unlock for ₹1 (Demo)
+    </button>
+  </div>
+
+  <div id="unlocked-box" style="display:none; text-align:center;">
+    <p style="color:green; font-weight:bold;">
+      ✅ Content Unlocked (Demo)
+    </p>
+
+    <ul style="list-style:none; padding:0;">
+      <li>📂 Premium Project Access</li>
+      <li>📄 Resume Download Enabled</li>
+      <li>⭐ Exclusive Content</li>
+    </ul>
+  </div>
+</section>
+
+
 
   <!-- Contact -->
 <section id="contact" class="container section">
@@ -286,6 +313,38 @@
     rzp.open();
   };
 </script>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+  // Ensure locked state on load
+  document.getElementById("unlocked-box").style.display = "none";
+
+  document.getElementById("unlock-btn").onclick = function () {
+    var options = {
+      key: "rzp_test_1DP5mmOlF5G5ag",
+      amount: 100,
+      currency: "INR",
+      name: "Pankaj Portfolio",
+      description: "Locked Content Demo (Test Mode)",
+
+      handler: function (response) {
+        document.getElementById("locked-box").style.display = "none";
+        document.getElementById("unlocked-box").style.display = "block";
+
+        console.log("Unlocked with Payment ID:", response.razorpay_payment_id);
+      },
+
+      theme: {
+        color: "#0097a7"
+      }
+    };
+
+    var rzp = new Razorpay(options);
+    rzp.open();
+  };
+</script>
+
 
 </body>
 </html>
