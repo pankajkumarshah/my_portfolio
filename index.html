@@ -136,16 +136,36 @@
 
 
   <!-- Contact -->
-  <section id="contact" class="container section">
-    <h2 class="section-title">Contact Me</h2>
-    <form id="contact-form">
-      <input type="text" name="from_name" placeholder="Your Name" required />
-      <input type="email" name="email_id" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-      <p id="form-message"></p>
-    </form>
-  </section>
+<section id="contact" class="container section">
+  <h2 class="section-title">Contact Me</h2>
+
+  <form id="contact-form">
+    <input
+      type="text"
+      name="from_name"
+      placeholder="Your Name"
+      required
+    />
+
+    <input
+      type="email"
+      name="email_id"
+      placeholder="Your Email"
+      required
+    />
+
+    <textarea
+      name="message"
+      placeholder="Your Message"
+      rows="5"
+      required
+    ></textarea>
+
+    <button type="submit">Send Message</button>
+    <p id="form-message"></p>
+  </form>
+</section>
+
 
   <!-- Footer -->
   <footer>
@@ -169,23 +189,39 @@
   </footer>
 
   <!-- EmailJS Script -->
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script>
-    (function() {
-      emailjs.init("uCumw4heHN6KXmuDV"); // replace this with your actual public key
-    })();
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function () {
+    emailjs.init("uCumw4heHN6KXmuDV"); // your public key
+  })();
 
-    document.getElementById("contact-form").addEventListener("submit", function(e) {
+  document
+    .getElementById("contact-form")
+    .addEventListener("submit", function (e) {
       e.preventDefault();
-      emailjs.sendForm("service_082xoig", "template_ldtuiqt", this)
-        .then(() => {
-          document.getElementById("form-message").textContent = "Message sent successfully!";
-          this.reset();
-        }, (error) => {
-          document.getElementById("form-message").textContent = "Failed to send message.";
-          console.error(error);
-        });
+
+      emailjs
+        .sendForm(
+          "service_082xoig",
+          "template_ldtuiqt",
+          this
+        )
+        .then(
+          function () {
+            document.getElementById("form-message").style.color = "green";
+            document.getElementById("form-message").textContent =
+              "Message sent successfully!";
+            document.getElementById("contact-form").reset();
+          },
+          function (error) {
+            document.getElementById("form-message").style.color = "red";
+            document.getElementById("form-message").textContent =
+              "Failed to send message. Please try again.";
+            console.error("EmailJS Error:", error);
+          }
+        );
     });
-  </script>
+</script>
+
 </body>
 </html>
