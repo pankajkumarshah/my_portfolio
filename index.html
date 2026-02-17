@@ -144,12 +144,13 @@
   </p>
 
   <div style="text-align:center; margin-top:1.5rem;">
-    <button id="pay-btn" class="pay-demo-btn">
-      Pay ₹1 (Demo)
-    </button>
+ <button id="pay-btn" class="pay-demo-btn">
+  Pay ₹1 (Demo)
+</button>
+
   </div>
 
-  <p id="payment-status" style="text-align:center; margin-top:1rem;"></p>
+<p id="payment-status" style="text-align:center; margin-top:1rem; display:none;"></p>
 </section>
 
 
@@ -253,12 +254,14 @@
       currency: "INR",
       name: "Pankaj Portfolio",
       description: "Payment Gateway Demo (Test Mode)",
-      handler: function (response) {
-        document.getElementById("payment-status").style.color = "green";
-        document.getElementById("payment-status").textContent =
-          "Payment Successful! (Demo Only)";
-        console.log("Payment ID:", response.razorpay_payment_id);
-      },
+     handler: function (response) {
+  var status = document.getElementById("payment-status");
+  status.style.display = "block";
+  status.style.color = "green";
+  status.textContent = "Payment Successful! (Demo Only)";
+  console.log("Payment ID:", response.razorpay_payment_id);
+},
+
       prefill: {
         name: "Demo User",
         email: "demo@example.com"
