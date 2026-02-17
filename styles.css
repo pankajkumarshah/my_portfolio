@@ -195,3 +195,60 @@
     }
   }
   
+/* Project Enhancements */
+.project-desc {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-tech {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.project-tech li {
+  font-size: 0.85rem;
+  color: #00796b;
+}
+
+.project-links a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  text-decoration: none;
+  color: #0097a7;
+  font-weight: 600;
+}
+
+/* Skills Group */
+.skills-group {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.skills-group h3 {
+  color: #00796b;
+  margin-bottom: 0.5rem;
+}
+
+/* Resume Section */
+.resume-section {
+  text-align: center;
+}
+
+.resume-text {
+  margin-bottom: 1rem;
+}
+
+.resume-button {
+  padding: 0.7rem 2rem;
+  background: #0097a7;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.resume-button:hover {
+  background: #00796b;
+}
