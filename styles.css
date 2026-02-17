@@ -220,35 +220,47 @@
   font-weight: 600;
 }
 
-/* Skills Group */
-.skills-group {
+/* ===== SKILLS FIX ===== */
+.skills-wrapper {
+  max-width: 900px;
+  margin: auto;
+}
+
+.skills-row {
   margin-bottom: 1.5rem;
-  text-align: center;
 }
 
-.skills-group h3 {
-  color: #00796b;
+.skills-row h3 {
   margin-bottom: 0.5rem;
+  color: #00796b;
 }
 
-/* Resume Section */
-.resume-section {
-  text-align: center;
+.skill-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.resume-text {
-  margin-bottom: 1rem;
+.skill-badges span {
+  background: #0097a7;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
 }
 
-.resume-button {
-  padding: 0.7rem 2rem;
+
+/* ===== RESUME FIX ===== */
+.resume-btn {
+  display: inline-block;
+  padding: 10px 25px;
   background: #0097a7;
   color: white;
   text-decoration: none;
   border-radius: 5px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
-.resume-button:hover {
+.resume-btn:hover {
   background: #00796b;
 }
