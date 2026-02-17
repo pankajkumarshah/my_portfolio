@@ -264,6 +264,24 @@
 .resume-btn:hover {
   background: #00796b;
 }
+
+
+/* ===== PAYMENT DEMO ===== */
+.pay-demo-btn {
+  padding: 12px 28px;
+  background: #0097a7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pay-demo-btn:hover {
+  background: #00796b;
+}
+
 section {
   scroll-margin-top: 80px;
 }
