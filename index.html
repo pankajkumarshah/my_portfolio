@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfolio | Pankaj</title>
+  <p style="text-align:center; font-size:0.9rem; color:#666;">
+  ⚠️ Demo only — no real money is charged. Uses Razorpay Test Mode.
+</p>
+
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
@@ -121,12 +125,13 @@
 
 <!-- Premium Locked Content -->
 <section id="premium-demo" class="container section">
- <h2 class="section-title">Payment Demo (Razorpay – Test Mode)</h2>
+ <h2 class="section-title">Payment Integration Demo (Razorpay – Test Mode)</h2>
 
 
   <div id="lock-overlay">
     🔒 Locked Content<br />
-    <button id="unlock-btn" class="pay-demo-btn">Unlock for ₹1 (Demo)</button>
+    <button id="unlock-btn" class="pay-demo-btn">Unlock Premium (₹1 – Demo)
+</button>
   </div>
 
   <div id="premium-content" class="locked">
@@ -137,7 +142,10 @@
       <li>🔐 Secure Authentication Flow</li>
     </ul>
 
-    <a href="Pankaj_Resume.pdf" class="resume-btn">Download Premium Resume</a>
+   <a href="Pankaj_Resume.pdf" class="resume-btn" id="premium-resume" style="display:none;">
+  Download Premium Resume
+</a>
+
   </div>
 </section>
 
@@ -189,16 +197,14 @@
       amount: 100,
       currency: "INR",
       name: "Pankaj Portfolio",
-      description: "Unlock Premium Content (Demo)",
+      description: "Unlock Premium",
 
       handler: function (response) {
         document.getElementById("premium-content").classList.remove("locked");
         document.getElementById("lock-overlay").style.display = "none";
-        console.log("Payment ID:", response.razorpay_payment_id);
-      },
+        document.getElementById("premium-resume").style.display = "inline-block";
 
-      theme: {
-        color: "#0097a7"
+        console.log("Payment ID:", response.razorpay_payment_id);
       }
     };
 
