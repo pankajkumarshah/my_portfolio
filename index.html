@@ -181,38 +181,32 @@
 
 <!-- Razorpay -->
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
 <script>
-  const status = document.getElementById("payment-status");
-
-  document.getElementById("pay-btn").onclick = function () {
-    new Razorpay({
-      key: "rzp_test_1DP5mmOlF5G5ag",
-      amount: 100,
-      currency: "INR",
-      name: "Pankaj Portfolio",
-      description: "Payment Demo",
-      handler: function () {
-        status.style.display = "block";
-        status.style.color = "green";
-        status.textContent = "Payment Successful! (Demo Only)";
-      }
-    }).open();
-  };
-
   document.getElementById("unlock-btn").onclick = function () {
-    new Razorpay({
+    var options = {
       key: "rzp_test_1DP5mmOlF5G5ag",
       amount: 100,
       currency: "INR",
       name: "Pankaj Portfolio",
-      description: "Unlock Premium",
-      handler: function () {
+      description: "Unlock Premium Content (Demo)",
+
+      handler: function (response) {
         document.getElementById("premium-content").classList.remove("locked");
         document.getElementById("lock-overlay").style.display = "none";
+        console.log("Payment ID:", response.razorpay_payment_id);
+      },
+
+      theme: {
+        color: "#0097a7"
       }
-    }).open();
+    };
+
+    var rzp = new Razorpay(options);
+    rzp.open();
   };
 </script>
+
 
 </body>
 </html>
