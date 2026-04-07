@@ -193,46 +193,16 @@
 <script>
 document.getElementById("unlock-btn").onclick = function () {
 
-var options = {
-    "key": "rzp_test_1DP5mmOlF5G5ag",
-    "amount": "100",
-    "currency": "INR",
-    "name": "Pankaj Portfolio",
-    "description": "Unlock Premium Demo",
+alert("Demo Payment Successful ✅ (Simulation Mode)");
 
-    "prefill": {
-        "name": "Pankaj Kumar",
-        "email": "demo@email.com",
-        "contact": "9999999999"
-    },
+document.getElementById("premium-content")
+.classList.remove("locked");
 
-    "theme": {
-        "color": "#3399cc"
-    },
+document.getElementById("lock-overlay")
+.style.display = "none";
 
-    "modal": {
-        "ondismiss": function(){
-            console.log("Payment popup closed");
-        }
-    },
-
-    "handler": function (response) {
-
-        alert("Demo Payment Successful ✅");
-
-        document.getElementById("premium-content").classList.remove("locked");
-
-        document.getElementById("lock-overlay").style.display = "none";
-
-        document.getElementById("premium-resume").style.display = "inline-block";
-
-        console.log("Payment ID:", response.razorpay_payment_id);
-    }
-};
-
-var rzp = new Razorpay(options);
-
-rzp.open();
+document.getElementById("premium-resume")
+.style.display = "inline-block";
 
 };
 </script>
