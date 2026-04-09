@@ -188,25 +188,44 @@
 </script>
 
 <!-- Razorpay -->
+
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <script>
 document.getElementById("unlock-btn").onclick = function () {
 
-alert("Demo Payment Successful ✅ (Simulation Mode)");
+var options = {
+    "key": "rzp_test_YourTestKeyHere", // Replace with your Razorpay Test Key
+    "amount": "100", // ₹1 = 100 paise
+    "currency": "INR",
+    "name": "Pankaj Portfolio Demo",
+    "description": "Demo Unlock Premium Content",
+    "image": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
 
-document.getElementById("premium-content")
-.classList.remove("locked");
+    handler: function (response){
 
-document.getElementById("lock-overlay")
-.style.display = "none";
+        alert("Payment Successful ✅");
 
-document.getElementById("premium-resume")
-.style.display = "inline-block";
+        document.getElementById("premium-content")
+        .classList.remove("locked");
+
+        document.getElementById("lock-overlay")
+        .style.display = "none";
+
+        document.getElementById("premium-resume")
+        .style.display = "inline-block";
+    },
+
+    theme: {
+        "color": "#3399cc"
+    }
+};
+
+var rzp1 = new Razorpay(options);
+rzp1.open();
 
 };
 </script>
-
 
 </body>
 </html>
