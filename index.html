@@ -23,11 +23,8 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#premium-demo">Payment Demo</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="login.html">Login</a></li>
-                <!-- Logout Button -->
-        <li>
-         <a href="#" onclick="logout()">Logout</a>
-        </li>
+        <li id="login-link">  <a href="login.html">Login</a></li>
+        <li id="logout-link" style="display:none;">  <a href="#" onclick="logout()">Logout</a></li>
 
       </ul>
     </div>
@@ -387,6 +384,37 @@ function logout(){
 localStorage.removeItem("loggedIn");
 
 window.location.href="login.html";
+
+}
+
+</script>
+  <script>
+
+// check login status
+
+if(localStorage.getItem("loggedIn")==="true"){
+
+document.getElementById("login-link").style.display="none";
+
+document.getElementById("logout-link").style.display="block";
+
+}
+else{
+
+document.getElementById("login-link").style.display="block";
+
+document.getElementById("logout-link").style.display="none";
+
+}
+
+
+// logout function
+
+function logout(){
+
+localStorage.removeItem("loggedIn");
+
+window.location.reload();
 
 }
 
