@@ -23,6 +23,13 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#premium-demo">Payment Demo</a></li>
         <li><a href="#contact">Contact</a></li>
+                <!-- Logout Button -->
+        <li>
+          <button onclick="logout()" class="logout-btn">
+            Logout
+          </button>
+        </li>
+
       </ul>
     </div>
   </nav>
@@ -376,6 +383,17 @@ body.scrollTop=body.scrollHeight;
 <script>
 
 if(localStorage.getItem("loggedIn")!=="true"){
+
+window.location.href="login.html";
+
+}
+
+</script>
+  <script>
+
+function logout(){
+
+localStorage.removeItem("loggedIn");
 
 window.location.href="login.html";
 
